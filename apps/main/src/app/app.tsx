@@ -1,15 +1,27 @@
-import styled from '@emotion/styled';
-import NxWelcome from './nx-welcome';
-
-const StyledApp = styled.div`
-  // Your style here
-`;
+import {GlobalStyle} from './global-style.styled';
+import Sidebar from '../components/sidebar/sidebar';
+import {Feed} from '../components/feed/feed';
+import RightBar from '../components/right-bar/right-bar';
+import {Box, createTheme, PaletteMode, ThemeProvider} from '@mui/material';
+import {useState} from 'react';
 
 export function App() {
+
+  const [mode, setMode] = useState<PaletteMode>('light');
+
+  const darkTheme = createTheme({
+    palette: {mode}
+  })
+
   return (
-    <StyledApp>
-      <NxWelcome title="main" />
-    </StyledApp>
+    <ThemeProvider theme={darkTheme}>
+      <GlobalStyle/>
+      <Box>
+        <Sidebar/>
+        <Feed/>
+        <RightBar/>
+      </Box>
+    </ThemeProvider>
   );
 }
 
