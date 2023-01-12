@@ -1,17 +1,13 @@
-import styled from '@emotion/styled';
+import {Box} from '@mui/material';
 
 /* eslint-disable-next-line */
 export interface RightBarProps {}
 
-const StyledRightBar = styled.div`
-  color: pink;
-`;
-
-export function RightBar(props: RightBarProps) {
+const RightBar = (props: RightBarProps) => {
   return (
-    <StyledRightBar>
-      <h1>Welcome to RightBar!</h1>
-    </StyledRightBar>
+    <Box bgcolor="lightcoral" flex={2} padding={2} sx={{display: {xs: 'none', sm: 'block'}}}>
+      RightBar
+    </Box>
   );
 }
 

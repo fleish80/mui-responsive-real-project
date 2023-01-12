@@ -1,11 +1,12 @@
 import {GlobalStyle} from './global-style.styled';
-import Sidebar from '../components/sidebar/sidebar';
-import {Feed} from '../components/feed/feed';
+import SideBar from '../components/side-bar/side-bar';
+import Feed from '../components/feed/feed';
 import RightBar from '../components/right-bar/right-bar';
-import {Box, createTheme, PaletteMode, ThemeProvider} from '@mui/material';
+import {Box, createTheme, PaletteMode, Stack, ThemeProvider} from '@mui/material';
 import {useState} from 'react';
+import Navbar from '../components/navbar/navbar';
 
-export function App() {
+const App = () => {
 
   const [mode, setMode] = useState<PaletteMode>('light');
 
@@ -17,9 +18,12 @@ export function App() {
     <ThemeProvider theme={darkTheme}>
       <GlobalStyle/>
       <Box>
-        <Sidebar/>
-        <Feed/>
-        <RightBar/>
+        <Navbar/>
+        <Stack direction="row" spacing={2} justifyContent="space-between">
+          <SideBar/>
+          <Feed/>
+          <RightBar/>
+        </Stack>
       </Box>
     </ThemeProvider>
   );

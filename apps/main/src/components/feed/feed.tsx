@@ -1,17 +1,14 @@
-import styled from '@emotion/styled';
+import {Box} from '@mui/material';
 
 /* eslint-disable-next-line */
-export interface FeedProps {}
+export interface FeedProps {
+}
 
-const StyledFeed = styled.div`
-  color: pink;
-`;
-
-export function Feed(props: FeedProps) {
+const Feed = (props: FeedProps) => {
   return (
-    <StyledFeed>
-      <h1>Welcome to Feed!</h1>
-    </StyledFeed>
+    <Box bgcolor="pink" flex={4} padding={2}>
+      Feed
+    </Box>
   );
 }
 
