@@ -1,5 +1,6 @@
-import {AppBar, Avatar, Badge, Box, InputBase, styled, Toolbar, Typography} from '@mui/material';
+import {AppBar, Avatar, Badge, Box, InputBase, Menu, MenuItem, styled, Toolbar, Typography} from '@mui/material';
 import {Mail, Notifications, Pets} from '@mui/icons-material';
+import {useState} from 'react';
 
 /* eslint-disable-next-line */
 export interface NavbarProps {
@@ -39,6 +40,7 @@ const UserBox = styled(Box)(({theme}) => ({
 }));
 
 const Navbar = (props: NavbarProps) => {
+  const [open, setOpen] = useState(false);
   return (
     <AppBar position="sticky">
       <StyledToolbar>
@@ -55,18 +57,35 @@ const Navbar = (props: NavbarProps) => {
           <Avatar
             sx={{width: 30, height: 30}}
             src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-            // onClick={(e) => setOpen(true)}
+            onClick={(e) => setOpen(true)}
           />
         </Icons>
-        <UserBox>
+        <UserBox onClick={(e) => setOpen(true)}>
           <Avatar
             sx={{width: 30, height: 30}}
             src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-            // onClick={(e) => setOpen(true)}
+            onClick={(e) => setOpen(true)}
           />
           <Typography variant="body1">John</Typography>
         </UserBox>
       </StyledToolbar>
+      <Menu
+        id="demo-positioned-menu"
+        aria-labelledby="demo-positioned-button"
+        open={open}
+        onClose={(e) => setOpen(false)}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}>
+        <MenuItem>Profile</MenuItem>
+        <MenuItem>My account</MenuItem>
+        <MenuItem>Logout</MenuItem>
+      </Menu>
     </AppBar>
   );
 }
