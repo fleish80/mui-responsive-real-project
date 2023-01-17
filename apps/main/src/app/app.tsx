@@ -5,6 +5,7 @@ import RightBar from '../components/right-bar/right-bar';
 import {Box, createTheme, PaletteMode, Stack, ThemeProvider} from '@mui/material';
 import {useState} from 'react';
 import Navbar from '../components/navbar/navbar';
+import Add from '../components/add/add';
 
 const App = () => {
 
@@ -24,6 +25,7 @@ const App = () => {
           <Feed/>
           <RightBar/>
         </Stack>
+        <Add />
       </Box>
     </ThemeProvider>
   );
